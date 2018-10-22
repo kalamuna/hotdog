@@ -1,8 +1,22 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
 <body>
 
-{{ the }}
 
+<section class="section">
+
+<div class="container">
+	<h1 class="title has-text-centered">Hot Dog/Not Hot Dog</h1>
+	<h2 class="subtitle has-text-centered">See if an image is a hot dog, or not a hot dog.</h2>
+	{% if image %}
+		{% include 'image.twig' with image only %}
+	{% endif %}
+	{% include 'form.twig' %}
+</div>
+</section>
 </body>
 </html>

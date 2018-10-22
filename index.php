@@ -2,6 +2,7 @@
 
 // Dependencies
 require_once 'vendor/autoload.php';
+require_once 'lib.php';
 
 // Set up Twig
 $loader = new Twig_Loader_Filesystem('templates');
@@ -18,11 +19,7 @@ if (isset($_FILES['image'])) {
 	$file_size = $_FILES['image']['size'];
 	$file_tmp = $_FILES['image']['tmp_name'];
 	$file_type = $_FILES['image']['type'];
-	$file_ext = strtolower(end(explode('.',  $_FILES['image']['name'])));
-	$extensions = array("jpeg","jpg","png");
-	if (in_array($file_ext, $extensions) === false){
-		$variables['errors'][] = "extension not allowed, please choose a JPEG or PNG file.";
-	}
+	$variables['image'] = processFile($file_tmp);
 }
 
 // Render the page
