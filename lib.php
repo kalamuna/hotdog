@@ -54,7 +54,7 @@ function checkHotDog($data) {
     foreach ($objects as $object) {
     	$name = $object->getName();
     	$score = $object->getScore();
-    	$objectString .= '<li>' . $name . ': ' . $score * 100 . '%</li>';
+    	$objectString .= '<li>' . $name . ': <em>' . $score * 100 . '%</em></li>';
         if ($name == 'Hot dog' && $score >= 0.5) {
         	$hotdog = true;
         }
@@ -64,10 +64,10 @@ function checkHotDog($data) {
     $output['ishotdog'] = $hotdog;
 
     if ($hotdog) {
-    	$output['description'] = '<p>Your image is a hot dog.</p>' . $objectString;
+    	$output['description'] = '<p><strong>Your image is a hot dog.</strong></p>' . $objectString;
     }
     else {
-    	$output['description'] = '<p>Your image is not a hot dog.</p>' . $objectString;
+    	$output['description'] = '<p><strong>Your image is not a hot dog.</strong></p>' . $objectString;
     }
 
 	return $output;
