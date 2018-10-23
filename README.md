@@ -26,9 +26,9 @@ Checks whether or not a given image is a hot dog, or not a hot dog.
     
 6. Export the JSON key to `.service_account.json`
 
-8. Point your web server to the project's root, or use:
+8. Point your web server to the project root, or use PHP's internal server:
     ```
-    composer start
+    php -S localhost:8080
     ```
 
 ## Usage
