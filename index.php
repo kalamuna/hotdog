@@ -1,14 +1,16 @@
 <?php
 
-// Dependencies
+// Dependencies.
 require_once 'vendor/autoload.php';
 require_once 'lib.php';
 
-// Set up Twig
+// Set up Twig.
 $loader = new Twig_Loader_Filesystem('templates');
 $twig = new Twig_Environment($loader, [
 	'debug' => true
 ]);
+
+// Load html.twig as the layout.
 $template = $twig->load('html.twig');
 $variables = [];
 
@@ -22,5 +24,5 @@ if (isset($_FILES['image'])) {
 	$variables['image'] = processFile($file_tmp);
 }
 
-// Render the page
+// Render the page.
 echo $template->render($variables);
